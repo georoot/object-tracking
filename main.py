@@ -18,7 +18,7 @@ dim = f.shape
 while(1):
     drawing = np.zeros((dim[0],dim[1],3), np.uint8)
     drawing[:] = [255,255,255]
-    # cv2.putText(drawing,"FEED",(0,60), cv2.FONT_HERSHEY_PLAIN,1.0,[0,0,255])
+#    cv2.putText(drawing,"FEED",(0,60), cv2.FONT_HERSHEY_PLAIN,1.0,[0,0,255])
     _,f = c.read()
     f = cv2.flip(f,1)
     blur = cv2.medianBlur(f,5)
@@ -61,9 +61,10 @@ while(1):
     prev_center = center
     # cv2.imshow('img',f)
     # cv2.imshow('draw',drawing)
-    cv2.namedWindow("test", cv2.WND_PROP_FULLSCREEN)
-    cv2.setWindowProperty("test", cv2.WND_PROP_FULLSCREEN, cv2.cv.CV_WINDOW_FULLSCREEN)
-    cv2.imshow("test",drawing)
+
+#    cv2.namedWindow("test", cv2.WND_PROP_FULLSCREEN)
+#    cv2.setWindowProperty("test", cv2.WND_PROP_FULLSCREEN, cv2.cv.CV_WINDOW_FULLSCREEN)
+#    cv2.imshow("test",drawing)
     k = cv2.waitKey(5) & 0xFF
     if k == 27:
         break
