@@ -1,5 +1,9 @@
 import cv2
 import numpy as np
+from Xlib import X, display
+d = display.Display()
+s = d.screen()
+root = s.root
 
 def filter(hsv):
     blue = cv2.inRange(hsv,np.array((100,100,100)),np.array((140,255,255)))
@@ -51,7 +55,9 @@ while(1):
     # f = f + drawing
     bux = cv2.resize(f, (0,0), fx=.2, fy=.2)
     drawing[0:dim[0]/5,0:dim[1]/5] = bux
-    cv2.circle(drawing, (center[1],center[0]), 4, [0,0,255],-1) 
+#    cv2.circle(drawing, (center[1],center[0]), 4, [0,0,255],-1) 
+    root.warp_pointer(center[1],center[0])
+    d.sync()
     prev_center = center
     # cv2.imshow('img',f)
     # cv2.imshow('draw',drawing)
